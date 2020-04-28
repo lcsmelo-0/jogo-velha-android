@@ -2,6 +2,7 @@ package com.example.jogodavelha;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void setColorQuadrados(int btn, int colorX){
+        getQuadrado(btn).setTextColor(getResources().getColor( colorX ));
+    }
+
     public void verificarFinal(){
         for(int x =0; x<=7; ++x){
             String s1 = getQuadrado(estadoFinal[x][0]).getText().toString();
@@ -54,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
             if(!s1.equals("") && !s2.equals("") && !s3.equals("")){
                 if(s1.equals(s2) && (s2.equals(s3))){
+                    setColorQuadrados(estadoFinal[x][0], R.color.red);
+                    setColorQuadrados(estadoFinal[x][1], R.color.red);
+                    setColorQuadrados(estadoFinal[x][2], R.color.red);
                     Toast.makeText(getView().getContext(), "Venceu o jogador " + this.jogadorAtual, Toast.LENGTH_LONG).show();
                     this.habilitarQuadrado(false);
                 }
