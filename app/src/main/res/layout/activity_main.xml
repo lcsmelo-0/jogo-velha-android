@@ -20,16 +20,19 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="jogadaQuadrado"
+            android:enabled="false"
             android:tag="quadrado1"/>
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="jogadaQuadrado"
+            android:enabled="false"
             android:tag="quadrado2"/>
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="jogadaQuadrado"
+            android:enabled="false"
             android:tag="quadrado3"/>
     </LinearLayout>
     <LinearLayout
@@ -41,16 +44,19 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="jogadaQuadrado"
+            android:enabled="false"
             android:tag="quadrado4"/>
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="jogadaQuadrado"
+            android:enabled="false"
             android:tag="quadrado5"/>
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="jogadaQuadrado"
+            android:enabled="false"
             android:tag="quadrado6"/>
     </LinearLayout>
     <LinearLayout
@@ -61,16 +67,27 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="jogadaQuadrado"
+            android:enabled="false"
             android:tag="quadrado7"/>
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="jogadaQuadrado"
+            android:enabled="false"
             android:tag="quadrado8"/>
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="jogadaQuadrado"
+            android:enabled="false"
             android:tag="quadrado9"/>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/botaoAcao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="novoJogo"
+        android:text="Jogar" />
+
 </LinearLayout>

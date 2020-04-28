@@ -33,9 +33,18 @@ public class MainActivity extends AppCompatActivity {
             setJogadorAtual(X);
             ((Button)v).setText(X);
         }
-
     }
 
+    public void novoJogo(View v){
+        ((Button)findViewById(R.id.botaoAcao)).setText("Recomeçar");
+        for(int i = 1; i<= 9; i++){
+            if(getQuadrado(i) != null){
+                getQuadrado(i).setText("");
+                getQuadrado(i).setEnabled(true);
+            }
+        }
+    }
+    
     public View getView() {
         return view;
     }
