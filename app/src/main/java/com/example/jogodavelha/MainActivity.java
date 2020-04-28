@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,17 +27,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void jogadaQuadrado (View v){
-        if(getJogadorAtual() == X){
-            setJogadorAtual(BOLINHA);
-            ((Button)v).setText(BOLINHA);
+        if(((Button)v).getText().equals("")){
+            if(getJogadorAtual() == X){
+                setJogadorAtual(BOLINHA);
+                ((Button)v).setText(BOLINHA);
+            } else{
+                setJogadorAtual(X);
+                ((Button)v).setText(X);
+            }
         } else{
-            setJogadorAtual(X);
-            ((Button)v).setText(X);
+            Toast.makeText(getView().getContext(), "Escolha outro quadrado", Toast.LENGTH_LONG).show();
         }
     }
 
     public void novoJogo(View v){
         ((Button)findViewById(R.id.botaoAcao)).setText("Recomeçar");
+        Toast.makeText(getView().getContext(), "Novo jogo iniciado", Toast.LENGTH_LONG).show();
+
         for(int i = 1; i<= 9; i++){
             if(getQuadrado(i) != null){
                 getQuadrado(i).setText("");
@@ -44,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-    
+
     public View getView() {
         return view;
     }
