@@ -5,22 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:gravity="center"
     tools:context=".MainActivity">
 
     <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="Jogo da velha!" />
+    android:text="Jogo da velha"
+        android:textSize="100px"/>
+
+    <TextView
+        android:id="@+id/resultado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clique em jogar para iniciar"
+        android:textSize="50px"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="10px"
+        android:layout_marginTop="100px">
+
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:onClick="jogadaQuadrado"
-            android:enabled="false"
             android:tag="quadrado1"/>
         <Button
             android:layout_width="100dp"
@@ -39,7 +51,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="jogadaQuadrado"
-        android:orientation="horizontal">
+        android:layout_margin="10px"
+        android:orientation="horizontal"
+        android:gravity="center">
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -62,7 +76,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="10px"
+        android:gravity="center">
         <Button
             android:layout_width="100dp"
             android:layout_height="100dp"
@@ -88,6 +104,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="novoJogo"
-        android:text="Jogar" />
+        android:text="Jogar"
+        android:layout_marginTop="50px"/>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider" />
 
 </LinearLayout>

@@ -6,10 +6,12 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    TextView resultado;
     private final String QUADRADO = "quadrado";
     private final String BOLINHA = "0";
     private final String X = "X";
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setView(getLayoutInflater().inflate(R.layout.activity_main, null));
         setContentView(getView());
+        resultado = (TextView) findViewById(R.id.resultado);
+
     }
 
     public Button getQuadrado(int tagNum){
@@ -51,6 +55,14 @@ public class MainActivity extends AppCompatActivity {
         getQuadrado(btn).setTextColor(getResources().getColor( colorX ));
     }
 
+    public void setColorBlack(){
+        for(int i = 0; i<=9; i++){
+            if(getQuadrado(i) !=null){
+                setColorQuadrados(i, R.color.black);
+            }
+        }
+    }
+
     public void verificarFinal(){
         for(int x =0; x<=7; ++x){
             String s1 = getQuadrado(estadoFinal[x][0]).getText().toString();
@@ -62,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
                     setColorQuadrados(estadoFinal[x][0], R.color.red);
                     setColorQuadrados(estadoFinal[x][1], R.color.red);
                     setColorQuadrados(estadoFinal[x][2], R.color.red);
+                    resultado.setText("Venceu o jogador: " + this.jogadorAtual);
                     Toast.makeText(getView().getContext(), "Venceu o jogador " + this.jogadorAtual, Toast.LENGTH_LONG).show();
                     this.habilitarQuadrado(false);
                 }
@@ -87,11 +100,13 @@ public class MainActivity extends AppCompatActivity {
     public void novoJogo(View v){
         ((Button)findViewById(R.id.botaoAcao)).setText("Recomeçar");
         Toast.makeText(getView().getContext(), "Novo jogo iniciado", Toast.LENGTH_LONG).show();
-
+        this.resultado.setText("");
+        setColorBlack();
         for(int i = 1; i<= 9; i++){
             if(getQuadrado(i) != null){
                 getQuadrado(i).setText("");
-                habilitarQuadrado(true);            }
+                habilitarQuadrado(true);
+            }
         }
     }
 
